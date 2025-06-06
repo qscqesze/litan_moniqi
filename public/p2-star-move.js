@@ -45,8 +45,14 @@ class P2StarMoveGame {
     
     // 开始P2星移
     startP2StarMove() {
-        if (this.p2State.isActive || this.p2State.isCountingDown) return;
+        console.log('P2星移按钮被点击，开始执行startP2StarMove方法');
         
+        if (this.p2State.isActive || this.p2State.isCountingDown) {
+            console.log('P2星移已在进行中，忽略此次点击');
+            return;
+        }
+        
+        console.log('开始P2星移倒计时');
         this.p2State.isCountingDown = true;
         const startButton = document.getElementById('start-p2-star-move');
         const countdownElement = document.getElementById('countdown');

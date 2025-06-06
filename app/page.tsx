@@ -18,8 +18,11 @@ export default function Home() {
     // 加载游戏脚本
     const loadGameScripts = async () => {
       try {
-        await loadScript('/script.js');
+        // 先加载p2-star-move.js，确保P2StarMoveGame类可用
         await loadScript('/p2-star-move.js');
+        // 再加载script.js，此时P2StarMoveGame已经可用
+        await loadScript('/script.js');
+        console.log('所有游戏脚本加载完成');
       } catch (error) {
         console.error('Failed to load game scripts:', error);
       }
@@ -37,24 +40,24 @@ export default function Home() {
 
   return (
     <>
-      <div className="main-wrapper">
+    <div className="main-wrapper">
         <div className="container">
-          <div id="circle"></div>
-          <div id="ground-indicator"></div>
-          <div id="arrow">↑</div>
+            <div id="circle"></div>
+            <div id="ground-indicator"></div>
+            <div id="arrow">↑</div>
         </div>
         <div className="instructions">
-          <h2>操作说明：</h2>
-          <p>李蛋模拟器, by 猛男爱吃饭</p>
-          <p>使用 WASD 键移动箭头.</p>
-          <div className="game-controls">
-            <button id="start-star-move" className="star-move-btn">开始星移</button>
-            <button id="start-p2-star-move" className="star-move-btn">开始P2星移</button>
-            <div id="countdown" className="countdown hidden">5</div>
-            <div id="game-status" className="game-status"></div>
-          </div>
+            <h2>操作说明：</h2>
+            <p>李蛋模拟器, by 猛男爱吃饭</p>
+            <p>使用 WASD 键移动箭头.</p>
+            <div className="game-controls">
+                <button id="start-star-move" className="star-move-btn">开始星移</button>
+                <button id="start-p2-star-move" className="star-move-btn">开始P2星移</button>
+                <div id="countdown" className="countdown hidden">5</div>
+                <div id="game-status" className="game-status"></div>
+            </div>
         </div>
-      </div>
+    </div>
     </>
   );
 }

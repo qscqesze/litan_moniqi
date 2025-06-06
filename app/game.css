@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.main-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.instructions {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.instructions li {
+    margin: 5px 0;
+    color: #7f8c8d;
+}
+
+.game-controls {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.star-move-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.star-move-btn:hover {
+    background-color: #c0392b;
+}
+
+.star-move-btn:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.countdown {
+    font-size: 48px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.countdown.hidden {
+    display: none;
+}
+
+.game-status {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 8px;
+    border-radius: 4px;
+    min-height: 20px;
+}
+
+.game-status.success {
+    background-color: #d5f4e6;
+    color: #27ae60;
+    border: 1px solid #27ae60;
+}
+
+.game-status.failure {
+    background-color: #fadbd8;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+/* P2星移传送门脉动动画 */
+@keyframes pulse {
+    0% {
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1.1);
+        box-shadow: 0 4px 15px rgba(155, 89, 182, 0.6);
+    }
+    100% {
+        transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) scale(1);
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* P2星移按钮样式 */
+.star-move-btn:nth-child(2) {
+    background-color: #9b59b6;
+    margin-left: 10px;
+}
+
+.star-move-btn:nth-child(2):hover {
+    background-color: #8e44ad;
+} 
